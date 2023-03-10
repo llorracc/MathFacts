@@ -1,0 +1,58 @@
+\documentclass{handout}
+\usepackage{handoutSetup}  
+
+\providecommand{\file}
+
+\newcommand{\entrylabel}[1]{\mbox{\small \texttt{#1}:}\hfil}
+\newenvironment{entry}
+  {\begin{list}{}
+      {\renewcommand{\makelabel}{\entrylabel}
+       \setlength{\labelwidth}{1.5in}
+       \setlength{\labelsep}{0.1in}
+       \setlength{\leftmargin}{\labelwidth}
+       %\setlength{\itemindent}{-0.5in}
+}}
+{\end{list}}
+
+
+\begin{document}
+
+\handoutHeader
+
+\begin{verbatimwrite}{\jobname.title}
+Derivations and Methods Useful for Macroeconomics
+\end{verbatimwrite}
+
+\centerline{\LARGE \input \jobname.title}
+
+\medskip\medskip
+
+The online directory that contains all public lecture notes is 
+\newcommand{\publec}{http://www.econ2.jhu.edu/people/ccarroll/public/LectureNotes}
+\newcommand{\toDir}{\publec/MathFacts}
+
+\begin{verbatimwrite}{./body.tex}
+
+\centerline{\href{\publec}{\texttt{\publec}}}
+
+\newcommand{\dir}{/Volumes/Data/Courses/Choice/LectureNotes/MathFacts/Handouts}
+
+\input makePostHandoutsStart.tex
+
+
+\newcommand{\hBoth}[1]{\href{\toDir/#1.pdf}{[pdf]}\href{\toDir/#1}{[html]}}
+\begin{entry}
+\input ../../Index/MathFactsList.tex
+\input ../../Index/Aggregation.tex
+\input ../../Index/Equiprobable-Returns.tex
+\end{entry}
+
+\write18{touch makePostHandouts.sh ; chmod a+x makePostHandouts.sh}
+\write18{touch makePostHandouts.sh ; mv makePostHandouts.sh /Volumes/Data/Courses/Choice/LectureNotes/MathFactsList/makePostMathFacts/makePostHandoutsAll.sh}
+
+\end{verbatimwrite}
+
+\input ./body.tex
+
+
+\end{document}

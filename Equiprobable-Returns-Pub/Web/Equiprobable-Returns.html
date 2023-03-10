@@ -1,0 +1,738 @@
+<!DOCTYPE html> 
+<html lang="en" xml:lang="en" > 
+<head>
+  <title></title> 
+<meta  charset="utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="viewport" content="width=device-width,initial-scale=1" /> 
+<link rel="stylesheet" type="text/css" href="Equiprobable-Returns.css" /> 
+<meta name="src" content="Equiprobable-Returns.tex"> 
+</head><body 
+>
+<!--l. 9--><p class="noindent" ><img 
+src="Equiprobable-Returns0x.svg" alt="© " class="math";align="absmiddle"><span 
+class="ecrm-0600">September 21, 2020, </span><a 
+href="http://econ.jhu.edu/people/ccarroll/" ><span 
+class="ecrm-0600">Christopher D. Carroll</span></a>                                                                                    <a 
+href="http://econ.jhu.edu/people/ccarroll/public/lecturenotes" ><span 
+class="ecrm-0600">Equiprobable-Returns</span></a>
+  <div  
+class="centerline"><span 
+class="ecrm-2074">Equiprobable Approximation to Bivariate Lognormal Returns</span> </div>
+<!--l. 6--><p class="indent" >  <span 
+class="ecrm-1440">This handout starts by deﬁning a convenient notation to represent two</span>
+<span 
+class="ecrm-1440">rate-of-return shocks that are distributed according to a multivariate lognormal</span>
+<span 
+class="ecrm-1440">that allows for nonzero covariances. It next presents a computationally simple</span>
+<span 
+class="ecrm-1440">method for constructing a numerical approximation to that joint distribution.</span>
+<span 
+class="ecrm-1440">The ﬁnal section uses both the numerical approximation, and more accurate (but</span>
+<span 
+class="ecrm-1440">enormously slower) standard numerical integration tools to assess the accuracy</span>
+<span 
+class="ecrm-1440">of the Campbell-Vicera analytical approximation to the solution to the optimal</span>
+<span 
+class="ecrm-1440">portfolio choice problem described in </span><a 
+href="http://econ.jhu.edu/people/ccarroll/public/lecturenotes/AssetPricing/Portfolio-Multi-CRRA" ><span 
+class="ectt-1440">Portfolio-Multi-CRRA</span></a><span 
+class="ecrm-1440">.</span>
+  <h3 class="sectionHead"><span class="titlemark"><span 
+class="ecrm-1440">1  </span></span> <a 
+ id="x1-10001"></a><span 
+class="ecrm-1440">Statistical Theory</span></h3>
+<!--l. 15--><p class="noindent" ><span 
+class="ecrm-1440">Consider a set of two normally distributed risks</span>
+  <table 
+class="equation-star"><tr><td>
+  <center class="math-display" >
+<img 
+src="Equiprobable-Returns1x.svg" alt="                     2   2
+𝜃2,t+1 ∼  𝒩  (− 0.5Σ  , Σ  )
+𝜃      ∼  𝒩  (− 0.5(x Σ )2,(x Σ )2)
+  1,t+1
+" class="math-display" ></center></td></tr></table>
+<!--l. 19--><p class="nopar" >
+<span 
+class="ecrm-1440">which are statistically independent (</span><img 
+src="Equiprobable-Returns2x.svg" alt="𝜃1,t+1  ⊥ 𝜃2,t+1   " class="math";align="absmiddle"><span 
+class="ecrm-1440">) even though the </span><span 
+class="ecti-1440">scale </span><span 
+class="ecrm-1440">of</span>
+<span 
+class="ecrm-1440">shock 1’s </span><span 
+class="ecti-1440">standard deviation </span><span 
+class="ecrm-1440">is determined by the proportionality factor</span> <img 
+src="Equiprobable-Returns3x.svg" alt="x  " class="math";align="absmiddle">
+<span 
+class="ecrm-1440">multiplied by the value of shock 2’s standard deviation,</span> <img 
+src="Equiprobable-Returns4x.svg" alt="Σ  " class="math";align="absmiddle"><span 
+class="ecrm-1440">. (This permits us to</span>
+<span 
+class="ecrm-1440">increase or decrease the size of both risks by changing</span> <img 
+src="Equiprobable-Returns5x.svg" alt="Σ  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">and to adjust the</span>
+<span 
+class="ecrm-1440">relative size of risk 1 vs risk 2 by adjusting</span> <img 
+src="Equiprobable-Returns6x.svg" alt="x  " class="math";align="absmiddle"><span 
+class="ecrm-1440">.)</span>
+                                                                                     
+                                                                                     
+<!--l. 26--><p class="indent" >  <span 
+class="ecrm-1440">The</span> <img 
+src="Equiprobable-Returns7x.svg" alt="𝜃  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">are interpreted as the logarithms of level variables</span> <img 
+src="Equiprobable-Returns8x.svg" alt="Θ  " class="math";align="absmiddle"><span 
+class="ecrm-1440">, and the means</span>
+<span 
+class="ecrm-1440">of the log variables have been chosen such that the expectations of the levels are</span>
+<span 
+class="ecrm-1440">independent of the size of the risk (cf.</span><span 
+class="ecrm-1440"> </span><a 
+href="http://econ.jhu.edu/people/ccarroll/public/lecturenotes/MathFacts/MathFactsList/" ><span 
+class="ectt-1440">MathFacts</span></a><span 
+class="ecrm-1440">). That is, deﬁning</span>
+<img 
+src="Equiprobable-Returns9x.svg" alt="Θ   =  𝔼 [e𝜃i,t+1]
+  i      t  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">for</span> <img 
+src="Equiprobable-Returns10x.svg" alt="i ∈ {1, 2 } " class="math";align="absmiddle"><span 
+class="ecrm-1440">:</span>
+  <table 
+class="equation"><tr><td><a 
+ id="x1-1001r1"></a>
+  <center class="math-display" >
+<img 
+src="Equiprobable-Returns11x.svg" alt="Θ   ≡  𝔼 [Θ      ] = 1 ∀ i
+  i     t   i,t+1
+   log  𝔼t[Θi,t+1 ] = 0 ∀ i.
+" class="math-display" ></center></td><td class="equation-label"><span 
+class="ecrm-1440">(1)</span></td></tr></table>
+<!--l. 31--><p class="nopar" >
+<!--l. 33--><p class="indent" >  <span 
+class="ecrm-1440">From the ﬁrst shock we can construct a log rate-of-return variable that can be</span>
+<span 
+class="ecrm-1440">represented equivalently in either of two ways:</span>
+  <table 
+class="equation"><tr><td><a 
+ id="x1-1002r2"></a>
+  <center class="math-display" >
+<img 
+src="Equiprobable-Returns12x.svg" alt="                ≡𝔯𝔯𝔯
+          ◜-----◞◟1-----◝
+r      =  r +  0.5 (xΣ )2 + 𝜃
+ 1,t+1      1                 1,t+1
+       = 𝔯𝔯𝔯1 − 0.5(x Σ )2 + 0.5(x Σ )2 + 𝜃1,t+1
+          ◟-----◝◜ -----◞   ◟-------◝ ◜-------◞
+                =r1                ≡/𝜃1,t+1
+" class="math-display" ></center></td><td class="equation-label"><span 
+class="ecrm-1440">(2)</span></td></tr></table>
+<!--l. 37--><p class="nopar" >
+<span 
+class="ecrm-1440">where</span> <img 
+src="Equiprobable-Returns13x.svg" alt="/𝜃      ∼   𝒩  (0.,(x Σ )2)
+/1,t+1  " class="math";align="absmiddle"><span 
+class="ecrm-1440">; the notation for</span> <img 
+src="Equiprobable-Returns14x.svg" alt="/𝜃
+/  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">is motivated by the fact that</span>
+                                                                                     
+                                                                                     
+<span 
+class="ecrm-1440">the addition of the extra term cancels the nonzero mean of the original</span> <img 
+src="Equiprobable-Returns15x.svg" alt="𝜃  " class="math";align="absmiddle"><span 
+class="ecrm-1440">.</span>
+<span 
+class="ecrm-1440">Then</span>
+  <table 
+class="equation"><tr><td><a 
+ id="x1-1003r3"></a>
+  <center class="math-display" >
+<img 
+src="Equiprobable-Returns16x.svg" alt="            R      ≡  er1,t+1
+              1,t+1
+R    ≡ 𝔼  [R      ] = er1+ (x Σ)2∕2
+   1     t   1,t+1
+    log 𝔼t [R1,t+1 ] = r1 +  (xΣ )2∕2  =  𝔯𝔯𝔯1
+" class="math-display" ></center></td><td class="equation-label"><span 
+class="ecrm-1440">(3)</span></td></tr></table>
+<!--l. 43--><p class="nopar" >
+<span 
+class="ecrm-1440">where note to avoid confusion that</span> <img 
+src="Equiprobable-Returns17x.svg" alt="𝔯𝔯𝔯1 ⁄=  𝔼t [r1,t+1]  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">while</span> <img 
+src="Equiprobable-Returns18x.svg" alt="log  𝔼t[R1,t+1 ] ⁄= r1 =  𝔼t [r1,t+1]  " class="math";align="absmiddle"><span 
+class="ecrm-1440">.</span>
+<!--l. 47--><p class="indent" >  <span 
+class="ecrm-1440">Using</span> <img 
+src="Equiprobable-Returns19x.svg" alt="𝔼t [𝜃2,t+1 ] = − 0.5Σ2   " class="math";align="absmiddle"> <span 
+class="ecrm-1440">and</span> <img 
+src="Equiprobable-Returns20x.svg" alt="𝔼t [(ω ∕x )𝜃1,t+1 ] = − 0.5( (ω∕x )Σ )2   " class="math";align="absmiddle"><span 
+class="ecrm-1440">, we can by</span>
+<span 
+class="ecrm-1440">analogy deﬁne a second return</span>
+  <table 
+class="equation"><tr><td><a 
+ id="x1-1004r4"></a>
+  <center class="math-display" >
+<img 
+src="Equiprobable-Returns21x.svg" alt="r2,t+1 ≡  𝔯𝔯𝔯2 + ζ +  (ω ∕x )𝜃1,t+1 +  𝜃2,t+1
+                                              2                    2
+       =  𝔯𝔯𝔯2 + ζ +  (ω ∕x )(//𝜃1,t+1 −  0.5(x Σ ) ) + (/𝜃/2,t+1 −  0.5Σ  )
+       =  𝔯𝔯𝔯  + ζ −  0.5(ω ∕x )(x Σ )2 − 0.5Σ2  + (ω ∕x )//𝜃     +  //𝜃
+          ◟2---------------◝◜----------------◞           t+1,1    2,t+1
+                           r2
+" class="math-display" ></center></td><td class="equation-label"><span 
+class="ecrm-1440">(4)</span></td></tr></table>
+<!--l. 52--><p class="nopar" >
+<span 
+class="ecrm-1440">for some constants</span> <img 
+src="Equiprobable-Returns22x.svg" alt="ω  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">and</span> <img 
+src="Equiprobable-Returns23x.svg" alt="ζ  " class="math";align="absmiddle"><span 
+class="ecrm-1440">.</span>
+                                                                                     
+                                                                                     
+<!--l. 55--><p class="indent" >  <span 
+class="ecrm-1440">Since</span> <img 
+src="Equiprobable-Returns24x.svg" alt="(ω ∕x )𝜃1,t+1   " class="math";align="absmiddle"> <span 
+class="ecrm-1440">is the only component of</span> <img 
+src="Equiprobable-Returns25x.svg" alt="r2,t+1   " class="math";align="absmiddle"> <span 
+class="ecrm-1440">that is correlated with</span>
+<img 
+src="Equiprobable-Returns26x.svg" alt="r
+  1,t+1   " class="math";align="absmiddle"><span 
+class="ecrm-1440">,</span>
+  <table 
+class="equation-star"><tr><td>
+  <center class="math-display" >
+<img 
+src="Equiprobable-Returns27x.svg" alt="cov (r     ,r     ) =  cov (r     ,(ω ∕x )r     )
+      1,t+1   2,t+1           1,t+1          1,t+1
+                    =  (ω ∕x )cov (r1,t+1, r1,t+1)
+                              ◟-------◝ ◜-------◞
+                                     =x2Σ2
+                            2
+                    =  ωx Σ  .
+" class="math-display" ><a 
+ id="x1-10001"></a></center></td></tr></table>
+<!--l. 61--><p class="nopar" >
+<!--l. 63--><p class="indent" >  <span 
+class="ecrm-1440">Thus, the parameter</span> <img 
+src="Equiprobable-Returns28x.svg" alt="ω  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">controls the covariance between the risky returns. If</span>
+<span 
+class="ecrm-1440">we set</span> <img 
+src="Equiprobable-Returns29x.svg" alt="ω  =  0  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">then</span> <img 
+src="Equiprobable-Returns30x.svg" alt="r1,t+1 ⊥  r2,t+1   " class="math";align="absmiddle"> <span 
+class="ecrm-1440">(the returns are independent).</span>
+<!--l. 65--><p class="indent" >  <span 
+class="ecrm-1440">Next we want to ﬁnd the value of</span> <img 
+src="Equiprobable-Returns31x.svg" alt="ζ  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">such that the expected level</span>
+<span 
+class="ecrm-1440">of the return is unaﬀected by</span> <img 
+src="Equiprobable-Returns32x.svg" alt="Σ  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">(so that we will be able to explore</span>
+<span 
+class="ecrm-1440">independently the distinct eﬀects of the components of each shock and their</span>
+<span 
+class="ecrm-1440">covariance):</span>
+  <table 
+class="equation"><tr><td><a 
+ id="x1-1005r5"></a>
+  <center class="math-display" >
+<img 
+src="Equiprobable-Returns33x.svg" alt="R2  ≡  𝔼t [R2,t+1 ] = e𝔯𝔯𝔯2
+" class="math-display" ></center></td><td class="equation-label"><span 
+class="ecrm-1440">(5)</span></td></tr></table>
+                                                                                     
+                                                                                     
+<!--l. 70--><p class="nopar" >
+<span 
+class="ecrm-1440">regardless of the values of</span> <img 
+src="Equiprobable-Returns34x.svg" alt="x  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">and</span> <img 
+src="Equiprobable-Returns35x.svg" alt="Σ  " class="math";align="absmiddle"><span 
+class="ecrm-1440">. Using</span> <span 
+class="ecrm-1440">(</span><a 
+href="#x1-1004r4"><span 
+class="ecrm-1440">4</span><!--tex4ht:ref: eq:r2tp1CheckDef --></a><span 
+class="ecrm-1440">)</span><span 
+class="ecrm-1440">, we therefore need:</span>
+  <table 
+class="equation"><tr><td><a 
+ id="x1-1006r6"></a>
+  <center class="math-display" >
+<img 
+src="Equiprobable-Returns36x.svg" alt="         ζ+(ω∕x)𝜃1,t+1+ 𝜃2,t+1
+    𝔼t [e                   ] = 1
+log 𝔼  [e ζ+(ω∕x)𝜃1,t+1+ 𝜃2,t+1] = 0.
+      t
+" class="math-display" ></center></td><td class="equation-label"><span 
+class="ecrm-1440">(6)</span></td></tr></table>
+<!--l. 75--><p class="nopar" >
+<!--l. 77--><p class="indent" >  <span 
+class="ecrm-1440">Using standard facts about lognormals (cf. </span><a 
+href="http://econ.jhu.edu/people/ccarroll/public/lecturenotes/MathFacts/MathFactsList/" ><span 
+class="ectt-1440">MathFacts</span></a><span 
+class="ecrm-1440">), and for convenience</span>
+<span 
+class="ecrm-1440">deﬁning</span> <img 
+src="Equiprobable-Returns37x.svg" alt="ˆω  = ( Σ∕x )ω  " class="math";align="absmiddle"><span 
+class="ecrm-1440">, we have</span>
+  <table 
+class="equation"><tr><td><a 
+ id="x1-1007r7"></a>
+  <center class="math-display" >
+<img 
+src="Equiprobable-Returns38x.svg" alt="0.=  ζ −  0.5 ˆωx2  − 0.5 Σ2 +  0.5ωˆ2x2  +  0.5 Σ2
+               2
+   = ζ −  0.5x  ˆω (1 −  ˆω)
+                 2  2                 2   2
+ζ  = 0.5 (ˆω −  ˆω  )x  =  0.5 (ωx −  ω  )Σ
+" class="math-display" ></center></td><td class="equation-label"><span 
+class="ecrm-1440">(7)</span></td></tr></table>
+<!--l. 83--><p class="nopar" >
+<span 
+class="ecrm-1440">which means that we can rewrite</span> <span 
+class="ecrm-1440">(</span><a 
+href="#x1-1004r4"><span 
+class="ecrm-1440">4</span><!--tex4ht:ref: eq:r2tp1CheckDef --></a><span 
+class="ecrm-1440">)</span> <span 
+class="ecrm-1440">directly as</span>
+  <table 
+class="equation-star"><tr><td>
+                                                                                     
+                                                                                     
+  <center class="math-display" >
+<img 
+src="Equiprobable-Returns39x.svg" alt="r      = 𝔯𝔯𝔯 +  0.5(ωx  −  ω2 )Σ2  + (ω ∕x )𝜃      + 𝜃
+ 2,t+1      2                                1,t+1     2,t+1
+       = 𝔯𝔯𝔯2 + 0.5(ωx  −  ω2 )Σ2  − 0.5 (ω ∕x)(x Σ )2 − 0.5 Σ2 +  (ω ∕x )//𝜃t+1,1 + //𝜃2,t+1
+                        2            2        2  2         2
+       = 𝔯𝔯𝔯2 + 0.5ωx  Σ  −  0.5ωx  Σ  −  0.5 ω Σ   −  0.5Σ   + (ω ∕x )//𝜃t+1,1 + 𝜃//2,t+1
+                      2       2
+       = 𝔯𝔯𝔯◟2 −-(1-+◝◜ω--)0.5Σ-◞+  (ω∕x )/𝜃/t+1,1 +  //𝜃2,t+1.
+                   r
+                    2
+" class="math-display" ></center></td></tr></table>
+<!--l. 92--><p class="nopar" >
+<!--l. 95--><p class="indent" >  <span 
+class="ecrm-1440">Hence, from the independent mean-one lognormally distributed shocks</span> <img 
+src="Equiprobable-Returns40x.svg" alt="Θ1   " class="math";align="absmiddle">
+<span 
+class="ecrm-1440">and</span> <img 
+src="Equiprobable-Returns41x.svg" alt="Θ2   " class="math";align="absmiddle"><span 
+class="ecrm-1440">, we have constructed a pair of jointly lognormally distributed shocks</span>
+<span 
+class="ecrm-1440">whose covariance is controlled by the parameter</span> <img 
+src="Equiprobable-Returns42x.svg" alt="ω  " class="math";align="absmiddle"><span 
+class="ecrm-1440">, whose relative and absolute</span>
+<span 
+class="ecrm-1440">variances are controlled by the parameters</span> <img 
+src="Equiprobable-Returns43x.svg" alt="x  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">and</span> <img 
+src="Equiprobable-Returns44x.svg" alt="Σ  " class="math";align="absmiddle"><span 
+class="ecrm-1440">, and whose means are</span> <img 
+src="Equiprobable-Returns45x.svg" alt="r1   " class="math";align="absmiddle">
+<span 
+class="ecrm-1440">and</span> <img 
+src="Equiprobable-Returns46x.svg" alt="r2   " class="math";align="absmiddle"><span 
+class="ecrm-1440">.</span>
+<!--l. 102--><p class="indent" >  <span 
+class="ecrm-1440">To sum up, the process can be described in either of two ways:</span>
+  <table 
+class="equation-star"><tr><td>
+  <center class="math-display" >
+<img 
+src="Equiprobable-Returns47x.svg" alt="(         )     (                )     (                                 )
+   r               𝒩 (r  ,x2Σ2 )            𝒩 (𝔯𝔯𝔯  −  0.5(x Σ )2,x2 Σ2 )
+    1,t+1     ∼          1     2     =           1          2      2   2
+   r2,t+1           𝒩 (r2,   Σ  )          𝒩  (𝔯𝔯𝔯2 − (1 +  ω  )0.5Σ  ,Σ  )
+" class="math-display" ></center></td></tr></table>
+<!--l. 105--><p class="nopar" >
+<span 
+class="ecrm-1440">with covariance matrix</span>
+  <table 
+class="equation"><tr><td><a 
+ id="x1-1008r8"></a>
+                                                                                     
+                                                                                     
+  <center class="math-display" >
+<img 
+src="Equiprobable-Returns48x.svg" alt="(  σ2   σ    )    (  (x Σ )2     x ωΣ2     )
+     1    12    ≡
+   σ12   σ22           xω Σ2   (ω2 +  1)Σ2
+" class="math-display" ></center></td><td class="equation-label"><span 
+class="ecrm-1440">(8)</span></td></tr></table>
+<!--l. 109--><p class="nopar" >
+<span 
+class="ecrm-1440">where a ﬁnal useful result that follows from</span> <span 
+class="ecrm-1440">(</span><a 
+href="#x1-1008r8"><span 
+class="ecrm-1440">8</span><!--tex4ht:ref: eq:CovMat --></a><span 
+class="ecrm-1440">)</span> <span 
+class="ecrm-1440">and</span> <span 
+class="ecrm-1440">(</span><a 
+href="#x1-10001"><span 
+class="ecrm-1440">1</span><!--tex4ht:ref: eq:Cov --></a><span 
+class="ecrm-1440">)</span> <span 
+class="ecrm-1440">is</span>
+  <table 
+class="equation"><tr><td><a 
+ id="x1-1009r9"></a>
+  <center class="math-display" >
+<img 
+src="Equiprobable-Returns49x.svg" alt="corr (r1,t+1, r2,t+1 ) ≡  cov(r1,t+1, r2,t+1 )∕σ1 σ2
+                                  2 0.5
+                     = ω ∕ (1 + ω  )   .
+" class="math-display" ></center></td><td class="equation-label"><span 
+class="ecrm-1440">(9)</span></td></tr></table>
+<!--l. 114--><p class="nopar" >
+<!--l. 116--><p class="noindent" >
+  <h3 class="sectionHead"><span class="titlemark"><span 
+class="ecrm-1440">2  </span></span> <a 
+ id="x1-20002"></a><span 
+class="ecrm-1440">Computational Theory</span></h3>
+<!--l. 118--><p class="noindent" ><span 
+class="ecrm-1440">To reduce clutter, deﬁne</span> <img 
+src="Equiprobable-Returns50x.svg" alt="˜Ri  =  Ri,t+1   " class="math";align="absmiddle"> <span 
+class="ecrm-1440">and interpret</span> <img 
+src="Equiprobable-Returns51x.svg" alt="𝔼  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">as</span> <img 
+src="Equiprobable-Returns52x.svg" alt="𝔼t []  " class="math";align="absmiddle"><span 
+class="ecrm-1440">, so that we can</span>
+<span 
+class="ecrm-1440">write the expectation of some function</span> <img 
+src="Equiprobable-Returns53x.svg" alt="h  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">that depends on the realization of the</span>
+<span 
+class="ecrm-1440">return shocks as:</span>
+  <table 
+class="equation"><tr><td><a 
+ id="x1-2001r10"></a>
+                                                                                     
+                                                                                     
+  <center class="math-display" >
+<img 
+src="Equiprobable-Returns54x.svg" alt="                   ∫  ¯R1 ∫ R¯2
+𝔼 [h( ˜R  ,R˜ )] =             h (˜R  ,R˜  )dF (R˜ , ˜R  )
+        1   2                      1    2       1    2
+                    R1    R2
+" class="math-display" ></center></td><td class="equation-label"><span 
+class="ecrm-1440">(10)</span></td></tr></table>
+<!--l. 122--><p class="nopar" >
+<span 
+class="ecrm-1440">where</span> <img 
+src="Equiprobable-Returns55x.svg" alt="F (˜R1, R˜2  )  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">is the cumulative distribution function for a</span>
+<span 
+class="ecrm-1440">multivariate lognormal with the covariance matrix deﬁned by</span>
+<span 
+class="ecrm-1440">(</span><a 
+href="#x1-1008r8"><span 
+class="ecrm-1440">8</span><!--tex4ht:ref: eq:CovMat --></a><span 
+class="ecrm-1440">)</span><span 
+class="ecrm-1440">.</span><span class="footnote-mark"><a 
+href="Equiprobable-Returns2.html#fn1x0"><sup class="textsuperscript">1</sup></a></span><a 
+ id="x1-2002f1"></a>  
+<span 
+class="ecrm-1440">Standard numerical computation software can compute this double integral, but</span>
+<span 
+class="ecrm-1440">at such a slow speed as to be unusable for many purposes. Computation of the</span>
+<span 
+class="ecrm-1440">expectation can be massively speeded up by advance construction of a numerical</span>
+<span 
+class="ecrm-1440">approximation to</span> <img 
+src="Equiprobable-Returns59x.svg" alt="F (˜R  ,R˜  )
+     1   2  " class="math";align="absmiddle"><span 
+class="ecrm-1440">.</span>
+<!--l. 130--><p class="indent" >  <span 
+class="ecrm-1440">Such approximations often take the approach of replacing the distribution</span>
+<span 
+class="ecrm-1440">function with a discretized approximation to it; appropriate weights</span> <img 
+src="Equiprobable-Returns60x.svg" alt="w [i,j ]  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">are</span>
+<span 
+class="ecrm-1440">attached to each of a ﬁnite set of points indexed by</span> <img 
+src="Equiprobable-Returns61x.svg" alt="i  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">and</span> <img 
+src="Equiprobable-Returns62x.svg" alt="j  " class="math";align="absmiddle"><span 
+class="ecrm-1440">, and the</span>
+<span 
+class="ecrm-1440">approximation to the integral is given by:</span>
+  <table 
+class="equation"><tr><td><a 
+ id="x1-2003r11"></a>
+  <center class="math-display" >
+<img 
+src="Equiprobable-Returns63x.svg" alt="                  ∑ n  ∑m
+      ˜   ˜                   ˆ         ˆ
+𝔼 [h(R1,  R2 )] ≈          h (R1 [i,j],R2  [i,j ])w  [i,j ]
+                   i=1 j=1
+" class="math-display" ></center></td><td class="equation-label"><span 
+class="ecrm-1440">(11)</span></td></tr></table>
+                                                                                     
+                                                                                     
+<!--l. 136--><p class="nopar" >
+<span 
+class="ecrm-1440">where various methods are used for constructing the weights</span> <img 
+src="Equiprobable-Returns64x.svg" alt="w [i,j]  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">and the</span>
+<span 
+class="ecrm-1440">nodes (corresponding to the</span> <img 
+src="Equiprobable-Returns65x.svg" alt="{i,j } " class="math";align="absmiddle"> <span 
+class="ecrm-1440">pairs). The matrices</span> <img 
+src="Equiprobable-Returns66x.svg" alt="Rˆ1   " class="math";align="absmiddle"> <span 
+class="ecrm-1440">and</span> <img 
+src="Equiprobable-Returns67x.svg" alt="Rˆ2   " class="math";align="absmiddle"> <span 
+class="ecrm-1440">contain</span>
+<span 
+class="ecrm-1440">the conditional mean values of</span> <img 
+src="Equiprobable-Returns68x.svg" alt="R˜
+  1   " class="math";align="absmiddle"> <span 
+class="ecrm-1440">and</span> <img 
+src="Equiprobable-Returns69x.svg" alt="R˜
+  2   " class="math";align="absmiddle"> <span 
+class="ecrm-1440">associated with each of the</span>
+<span 
+class="ecrm-1440">regions.</span>
+<!--l. 139--><p class="indent" >  <span 
+class="ecrm-1440">Perhaps the most popular such method is Gauss-Hermite interpolation (see</span>
+<a 
+href="#Xjudd:book"><span 
+class="ecrm-1440">Judd</span></a><span 
+class="ecrm-1440"> (</span><a 
+href="#Xjudd:book"><span 
+class="ecrm-1440">1998</span></a><span 
+class="ecrm-1440">) for an exposition, or </span><a 
+href="#Xkopecky2010finite"><span 
+class="ecrm-1440">Kopecky and Suen</span></a><span 
+class="ecrm-1440"> (</span><a 
+href="#Xkopecky2010finite"><span 
+class="ecrm-1440">2010</span></a><span 
+class="ecrm-1440">) for a recent</span>
+<span 
+class="ecrm-1440">candidate for a better choice). Here, we will pursue a particularly simple and</span>
+<span 
+class="ecrm-1440">intuitive alternative: Equiprobable discretization. In this method,</span> <img 
+src="Equiprobable-Returns70x.svg" alt="m  =  n  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">and</span>
+<span 
+class="ecrm-1440">boundaries on the joint CDF are determined in such a way as to divide up the</span>
+<span 
+class="ecrm-1440">total probability mass into submasses of equal size (each of which therefore has a</span>
+<span 
+class="ecrm-1440">mass of</span> <img 
+src="Equiprobable-Returns71x.svg" alt="n− 2   " class="math";align="absmiddle"><span 
+class="ecrm-1440">). This is conceptually easier if we represent the underlying shocks</span>
+<span 
+class="ecrm-1440">as statistically independent, as with</span> <img 
+src="Equiprobable-Returns72x.svg" alt="Θ1   " class="math";align="absmiddle"> <span 
+class="ecrm-1440">and</span> <img 
+src="Equiprobable-Returns73x.svg" alt="Θ2   " class="math";align="absmiddle"> <span 
+class="ecrm-1440">above; in that case, each</span>
+<span 
+class="ecrm-1440">submass is a square region in the</span> <img 
+src="Equiprobable-Returns74x.svg" alt="Θ
+  1   " class="math";align="absmiddle"> <span 
+class="ecrm-1440">and</span> <img 
+src="Equiprobable-Returns75x.svg" alt="Θ
+  2   " class="math";align="absmiddle"> <span 
+class="ecrm-1440">grid. We then compute the</span>
+<span 
+class="ecrm-1440">average value of</span> <img 
+src="Equiprobable-Returns76x.svg" alt="Θ1   " class="math";align="absmiddle"> <span 
+class="ecrm-1440">and</span> <img 
+src="Equiprobable-Returns77x.svg" alt="Θ2   " class="math";align="absmiddle"> <span 
+class="ecti-1440">conditional </span><span 
+class="ecrm-1440">on their being located in each of the</span>
+<span 
+class="ecrm-1440">subdivisions of the range of the CDF. Since</span> <img 
+src="Equiprobable-Returns78x.svg" alt="Θ
+  1   " class="math";align="absmiddle"> <span 
+class="ecrm-1440">and</span> <img 
+src="Equiprobable-Returns79x.svg" alt="Θ
+  2   " class="math";align="absmiddle"> <span 
+class="ecrm-1440">are IID, the</span>
+<span 
+class="ecrm-1440">representation of the approximating summation is even simpler than</span>
+<span 
+class="ecrm-1440">(</span><a 
+href="#x1-2003r11"><span 
+class="ecrm-1440">11</span><!--tex4ht:ref: eq:wtdAvg --></a><span 
+class="ecrm-1440">)</span><span 
+class="ecrm-1440">:</span>
+  <table 
+class="equation-star"><tr><td>
+  <center class="math-display" >
+<img 
+src="Equiprobable-Returns80x.svg" alt="  [  (          ) ]        ∑ n  ∑n    (                                       )
+𝔼  h   ˜R  , ˜R  )    ≈  n− 2         h   R  (ˆΘ  [i], ˆΘ  [j]),R  (Θˆ [i], ˆΘ [j]))
+         1    2                           1   1      2       2   1      2
+                            i=1  j=1
+" class="math-display" ><a 
+ id="x1-20002"></a></center></td></tr></table>
+<!--l. 157--><p class="nopar" >
+<span 
+class="ecrm-1440">where</span> <img 
+src="Equiprobable-Returns81x.svg" alt="Ri (Θ1, Θ2 )  " class="math";align="absmiddle"> <span 
+class="ecrm-1440">are the (linear) functions relating the return shocks to the</span>
+<span 
+class="ecrm-1440">IID shocks.</span>
+                                                                                     
+                                                                                     
+  <h3 class="sectionHead"><span class="titlemark"><span 
+class="ecrm-1440">3  </span></span> <a 
+ id="x1-30003"></a><span 
+class="ecrm-1440">Computational Results</span></h3>
+  <div class="figure" 
+>
+                                                                                     
+                                                                                     
+<a 
+ id="x1-30011"></a>
+                                                                                     
+                                                                                     
+<!--l. 163--><p class="noindent" >  <img 
+src="./ShareVsCovByMethod.svg" alt="PIC"  
+width="433" height="433" >
+<figcaption class="caption" ><span class="id">Figure 1:</span><span  
+class="content">Portfolio Share By Method as a Function of <img 
+src="Equiprobable-Returns82x.svg" alt="ω  " class="math";align="absmiddle"></span></figcaption><!--tex4ht:label?: x1-30011 -->
+                                                                                     
+                                                                                     
+  </div>
+<!--l. 167--><p class="indent" >  <span 
+class="ecrm-1440">Figure</span><span 
+class="ecrm-1440"> </span><a 
+href="#x1-30011"><span 
+class="ecrm-1440">1</span><!--tex4ht:ref: fig:ShareVsCovByMethod --></a> <span 
+class="ecrm-1440">compares the computed optimal portfolio share for a numerical</span>
+<span 
+class="ecrm-1440">solution using the built-in numerical optimizer and maximization functions (the</span>
+<span 
+class="ecrm-1440">lowest, black, locus), the Campbell-Viceira solution (the highest, red locus) and</span>
+<span 
+class="ecrm-1440">an equiprobable approximation using 20 approximation points (green, middle) as</span>
+<span 
+class="ecrm-1440">well as the solution using the equiprobable approximation at an evenly-spaced</span>
+<span 
+class="ecrm-1440">grid of points (blue dots).</span>
+<!--l. 172--><p class="indent" >  <span 
+class="ecrm-1440">Careful examination indicates that the numerical approximation is quite close</span>
+<span 
+class="ecrm-1440">to the full numerical solution, while the CV approximation diverges substantially</span>
+<span 
+class="ecrm-1440">from the numerical answer. The tradeoﬀ is that the equiprobable solution is</span>
+<span 
+class="ecrm-1440">about 2000 times slower than the CV approximation, while the direct solution is</span>
+<span 
+class="ecrm-1440">more than 100 times slower than the equiprobable solution. Depending on</span>
+<span 
+class="ecrm-1440">the requirements of the problem being examined, these diﬀerences in</span>
+<span 
+class="ecrm-1440">eﬃciency can make a tremendous diﬀerence in the feasibility of a research</span>
+<span 
+class="ecrm-1440">project.</span><span class="footnote-mark"><a 
+href="Equiprobable-Returns3.html#fn2x0"><sup class="textsuperscript">2</sup></a></span><a 
+ id="x1-3002f2"></a>  
+  <h3 class="likesectionHead"><a 
+ id="x1-40003"></a><span 
+class="ecrm-1440">References</span></h3>
+<!--l. 12--><p class="noindent" >
+  <div class="thebibliography">
+  <p class="bibitem" ><span class="biblabel">
+<a 
+ id="Xjudd:book"></a><span class="bibsp"><span 
+class="ecrm-1440"> </span><span 
+class="ecrm-1440"> </span><span 
+class="ecrm-1440"> </span></span></span><span 
+class="eccc1440-"><span 
+class="small-caps">J</span><span 
+class="small-caps">u</span><span 
+class="small-caps">d</span><span 
+class="small-caps">d</span><span 
+class="small-caps">,</span> <span 
+class="small-caps">K</span><span 
+class="small-caps">e</span><span 
+class="small-caps">n</span><span 
+class="small-caps">n</span><span 
+class="small-caps">e</span><span 
+class="small-caps">t</span><span 
+class="small-caps">h</span></span><span 
+class="eccc1440-"> <span 
+class="small-caps">L</span><span 
+class="small-caps">.</span> </span><span 
+class="ecrm-1440">(1998): </span><span 
+class="ecti-1440">Numerical Methods in Economics</span><span 
+class="ecrm-1440">. The</span>
+  <span 
+class="ecrm-1440">MIT Press, Cambridge, Massachusetts.</span>
+  </p>
+  <p class="bibitem" ><span class="biblabel">
+<a 
+ id="Xkopecky2010finite"></a><span class="bibsp"><span 
+class="ecrm-1440"> </span><span 
+class="ecrm-1440"> </span><span 
+class="ecrm-1440"> </span></span></span><span 
+class="eccc1440-"><span 
+class="small-caps">K</span><span 
+class="small-caps">o</span><span 
+class="small-caps">p</span><span 
+class="small-caps">e</span><span 
+class="small-caps">c</span><span 
+class="small-caps">k</span><span 
+class="small-caps">y</span><span 
+class="small-caps">,</span> <span 
+class="small-caps">K</span><span 
+class="small-caps">a</span><span 
+class="small-caps">r</span><span 
+class="small-caps">e</span><span 
+class="small-caps">n</span></span><span 
+class="eccc1440-"> <span 
+class="small-caps">A</span><span 
+class="small-caps">.</span><span 
+class="small-caps">,</span> <span 
+class="small-caps">a</span><span 
+class="small-caps">n</span><span 
+class="small-caps">d</span> <span 
+class="small-caps">R</span><span 
+class="small-caps">i</span><span 
+class="small-caps">c</span><span 
+class="small-caps">h</span><span 
+class="small-caps">a</span><span 
+class="small-caps">r</span><span 
+class="small-caps">d</span></span><span 
+class="eccc1440-"> <span 
+class="small-caps">M</span><span 
+class="small-caps">.</span><span 
+class="small-caps">H</span><span 
+class="small-caps">.</span> <span 
+class="small-caps">S</span><span 
+class="small-caps">u</span><span 
+class="small-caps">e</span><span 
+class="small-caps">n</span> </span><span 
+class="ecrm-1440">(2010): “Finite</span>
+  <span 
+class="ecrm-1440">State                         Markov-Chain                         Approximations</span>
+  <span 
+class="ecrm-1440">To Highly Persistent Processes,”  </span><span 
+class="ecti-1440">Review of Economic Dynamics</span><span 
+class="ecrm-1440">, 13(3),</span>
+  <span 
+class="ecrm-1440">701–714, </span><a 
+href="http://www.karenkopecky.net/RouwenhorstPaper.pdf" class="url" ><span 
+class="ectt-1440">http://www.karenkopecky.net/RouwenhorstPaper.pdf</span></a><span 
+class="ecrm-1440">.</span>
+</p>
+  </div>
+   
+</body> 
+</html>
+                                                                                     
+
+

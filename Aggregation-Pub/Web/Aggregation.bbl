@@ -1,0 +1,23 @@
+\providecommand{\noopsort}[1]{} \providecommand{\singleletter}[1]{#1}
+  \providecommand{\noopsort}[1]{} \providecommand{\singleletter}[1]{#1}
+\ifx\undefined\BySame
+\newcommand{\BySame}{\leavevmode\rule[.5ex]{3em}{.5pt}\ }
+\fi
+\ifx\undefined\textsc
+\newcommand{\textsc}[1]{{\sc #1}}
+\newcommand{\emph}[1]{{\em #1\/}}
+\let\tmpsmall\small
+\renewcommand{\small}{\tmpsmall\sc}
+\fi
+\begin{thebibliography}{}
+
+\harvarditem[Blanchard]{Blanchard}{1985}{blanchardFinite}
+\textsc{Blanchard, Olivier~J.}  (1985): ``Debt, Deficits, and Finite
+  Horizons,'' \emph{Journal of Political Economy}, 93(2), 223--247.
+
+\harvarditem[Calvo]{Calvo}{1983}{calvoPrices}
+\textsc{Calvo, Guillermo~A.}  (1983): ``Staggered Contracts in a
+  Utility-Maximizing Framework,'' \emph{Journal of Monetary Economics}, 12(3),
+  383--98.
+
+\end{thebibliography}

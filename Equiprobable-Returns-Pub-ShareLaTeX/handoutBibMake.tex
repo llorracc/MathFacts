@@ -1,0 +1,7 @@
+
+% \write18{if [ ! -f economics.bib    ]; then touch economics.bib    ; fi}
+\write18{if [ ! -f \texname.bib     ]; then touch \texname.bib     ; fi}
+\write18{if [ ! -f \texname-Add.bib ]; then touch \texname-Add.bib ; fi}
+
+\bibliographystyle{handout}
+\bibliography{economics,\texname,\texname-Add}

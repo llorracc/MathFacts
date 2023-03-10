@@ -1,0 +1,6 @@
+The contents of the texmf-local directory are custom LaTeX tools
+used in the compilation of the .tex files in this directory.
+They are invoked by LaTeX macros like \econtex which substitute the proper relative filepaths at the appropriate points in the LaTeX document
+The paths for each component mirror those that would be appropriate for the files to be installed in a local LaTeX installation
+
+

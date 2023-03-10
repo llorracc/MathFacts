@@ -1,0 +1,3 @@
+\write18{echo "/Volumes/Data/Courses/Tools/makePost/Handouts/makePostAll.sh Choice Equiprobable-Returns Aggregation" >> makePostHandouts.sh}
+\renewcommand{\file}{Equiprobable-Returns}
+\item[\file]  \input \dir/\file/LaTeX/\file.title \\ \hBoth{\file}

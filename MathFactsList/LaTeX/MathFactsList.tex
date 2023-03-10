@@ -1,0 +1,528 @@
+\documentclass{handout}
+\usepackage{econark}
+\usepackage{handoutSetup}
+%\usepackage{ushort}
+\usepackage{handoutShortcuts}
+
+% \begin{document}
+% $\rport$
+% \end{document} \endinput 
+\newtheorem{defn}{Definition}
+\newtheorem{Fact}{Fact}
+
+% \providecommand{\currentpdfbookmark}{}
+% \providecommand{\subpdfbookmark}{}
+% \providecommand{\belowpdfbookmark}{}
+
+% \usepackage{bookmark}
+
+% \begin{document}
+
+% $\rport$
+
+% \end{document}
+\begin{document}
+
+\handoutHeader
+
+
+\begin{verbatimwrite}{\jobname.title}
+Math Facts Useful for Graduate Macroeconomics
+\end{verbatimwrite}
+
+\handoutNameMake 
+
+The following collection of facts is useful in many macroeconomic
+models.  No proof is offered in most cases because the derivations
+are standard elements of prerequisite mathematics or microeconomics classes;
+this handout is offered as an {\it aide memoire} and for reference purposes.
+
+Throughout this document, typographical distinctions should be interpreted as 
+meaningful; for example, the variables $\risky$ and $\rport$ are {\it different} from 
+each other, like $x$ and $y$.
+
+Furthermore, a version of a variable without a subscript should be interpreted as 
+the population mean of that variable.  Thus, if $\Risky_{t+1}$ is a stochastic
+variable, then $\Risky$ denotes its mean value.
+
+
+\section{{Utility Functions}}
+
+
+\hypertarget{CRRALim}{}
+\subsection{{[CRRALim]}}\label{CRRALim} 
+
+\begin{verbatimwrite}{./CRRALim.def}
+\providecommand{\CRRALim}{\href{https://www.econ2.jhu.edu/people/ccarroll/public/LectureNotes/MathFacts/MathFactsList\#CRRALim}{\ensuremath{\mathtt{[CRRALim]}}}}
+\end{verbatimwrite}
+
+\begin{Fact} \label{fact:CRRALim} 
+\begin{equation}
+\lim_{\CRRA \rightarrow 1} \left(\frac{\cLev^{1-\CRRA}-1}{1-\CRRA}\right) = \log \cLev
+\end{equation}
+\end{Fact}
+\noindent which follows from L'H\^{o}pital's rule\footnote{Given recent decrees of the relevant authorities, the circumflex may need to be eliminated from future versions of these notes.  Which is OK, because the gentleman in question paid someone smarter than he was for the result anyway.}  because for any $\CRRA \neq 1$ the derivative exists,
+\begin{equation}\begin{gathered}\begin{aligned}
+  \uFunc^{\prime}(\cLev) & =  \cLev^{-\CRRA},
+\end{aligned}\end{gathered}\end{equation}
+and $\lim_{\CRRA \rightarrow 1} \cLev^{-\CRRA} = 1/\cLev$ but $\int (1/\cLev) = \log c$.
+
+Thus, we can conclude that as $\CRRA \rightarrow 1$, the behavior of
+the consumer with $\uFunc(\cLev)=\cLev^{1-\CRRA}/(1-\CRRA)$ becomes identical to
+the behavior of a consumer with $\uFunc(\cLev)=\log c$.\footnote{Recall that \textbf{b}ehavior is not affected by adding a constant to the utility function ...}
+
+
+\hypertarget{FinSum}{}
+\subsection{[FinSum]}\label{fact:FinSum} 
+
+%\currentpdfbookmark{FinSum}{FinSum}
+
+\begin{Fact} 
+\begin{equation}
+\displaystyle \sum_{i=0}^{T} \gamma^{i} = \left(\frac{1-\gamma^{T+1}}{1-\gamma}\right)
+\end{equation} 
+\end{Fact}
+
+\begin{verbatimwrite}{FinSum.def}
+\providecommand{\FinSum}{\href{https://www.econ2.jhu.edu/people/ccarroll/public/LectureNotes/MathFacts/MathFactsList\#FinSum}{\ensuremath{\mathtt{[FinSum]}}}}
+\end{verbatimwrite}
+
+
+\hypertarget{InfSum}{}
+
+\subsection{[InfSum]}\label{fact:InfSum}
+
+%\currentpdfbookmark{InfSum}{InfSum}
+
+\begin{Fact} If $0 < \gamma < 1$, then 
+\begin{equation}
+\displaystyle \sum_{i=0}^{\infty} \gamma^{i} = \left(\frac{1}{1-\gamma}\right)
+\end{equation}
+\end{Fact}
+
+\begin{verbatimwrite}{InfSum.def}
+\providecommand{\InfSum}{\href{https://www.econ2.jhu.edu/people/ccarroll/public/LectureNotes/MathFacts/MathFactsList\#InfSum}{\ensuremath{\mathtt{[InfSum]}}}}
+\end{verbatimwrite}
+
+\hypertarget{FinSumMult}{}
+\subsection{[FinSumMult]}\label{fact:FinSumMult} 
+
+%\currentpdfbookmark{FinSum}{FinSumMult}
+
+\begin{Fact} 
+\begin{equation}
+\displaystyle \sum_{i=0}^{T} i \gamma^{i} = \left(\frac{\gamma + \gamma^{T+1}(T(\gamma-1)-1)}{(1-\gamma)^{2}}\right)
+\end{equation} 
+\end{Fact}
+
+\begin{verbatimwrite}{FinSumMult.def}
+\providecommand{\FinSumMult}{\href{https://www.econ2.jhu.edu/people/ccarroll/public/LectureNotes/MathFacts/MathFactsList\#FinSumMult}{\ensuremath{\mathtt{[FinSumMult]}}}}
+\end{verbatimwrite}
+
+
+\hypertarget{InfSumMult}{}
+
+\subsection{[InfSumMult]}\label{fact:InfSumMult}
+
+%\currentpdfbookmark{InfSumMult}{InfSumMult}
+
+\begin{Fact} If $0 < \gamma < 1$, then 
+\begin{equation}
+\displaystyle \sum_{i=0}^{\infty} \gamma^{i} = \left(\frac{1}{1-\gamma}\right)
+\end{equation}
+\end{Fact}
+
+\begin{verbatimwrite}{InfSumMult.def}
+\providecommand{\InfSumMult}{\href{https://www.econ2.jhu.edu/people/ccarroll/public/LectureNotes/MathFacts/MathFactsList\#InfSumMult}{\ensuremath{\mathtt{[InfSumMult]}}}}
+\end{verbatimwrite}
+
+\medskip
+\section{`Small' Number Approximations}
+
+Sometimes economic models are written in continuous time and sometimes
+in discrete time.  Generically, there is a close
+correspondence between the two approaches, which is captured (for
+example) by the future value of a series that is growing at rate
+$\divGro$.  
+\begin{equation}\begin{gathered}\begin{aligned}
+  e^{\divGro t} & \text{~corresponds to~}  (1+\divGro)^{t} \equiv \DivGro^{t}.
+\end{aligned}\end{gathered}\end{equation}
+
+The words `corresponds to' are not meant to imply that these objects
+are mathematically identical, but rather that these are the
+corresponding ways in which constant growth is treated in continuous
+and in discrete time; while for small values of $\divGro$ they will be
+numerically very close, continuous-time compounding does yield
+slightly different values after any given time interval than does discrete
+growth (for example, continuous growth at a 10 percent rate after 
+1 year yields $e^{0.1} \approx 1.10517$ while in discrete time we would write
+it as $\DivGro=1.1$.)
+
+Many of the following facts can be interpreted as manifestations of
+the limiting relationships between continuous and discrete time
+approaches to economic problems.  (The continuous time formulations
+often yield simpler expressions, while the discrete formulations are
+useful for computational solutions; one of the purposes of the approximations is to show
+how the discrete-time solution becomes close to the corresponding
+continuous-time problem as the time interval shrinks).
+
+\hypertarget{TaylorOne}{}
+\subsection{[TaylorOne]}\label{fact:TaylorOne}
+
+%\currentpdfbookmark{TaylorOne}{TaylorOne}
+
+\begin{Fact} For $\epsilon$ near zero (`small'), a first order Taylor expansion
+of $(1+\epsilon)^{\zeta}$ around 1 yields
+\begin{equation}
+ (1+\epsilon)^{\zeta} \approx 1+ \epsilon\zeta 
+\end{equation}
+\end{Fact}
+
+\begin{verbatimwrite}{TaylorOne.def}
+\providecommand{\TaylorOne}{\href{https://www.econ2.jhu.edu/people/ccarroll/public/LectureNotes/MathFacts/MathFactsList\#TaylorOne}{\ensuremath{\mathtt{[TaylorOne]}}}}
+\end{verbatimwrite}
+
+
+
+\hypertarget{TaylorTwo}{}
+\subsection{[TaylorTwo]}\label{fact:TaylorTwo}
+
+%\currentpdfbookmark{TaylorTwo}{TaylorTwo}
+\begin{Fact} For $\epsilon$ near zero (`small'), a second order Taylor expansion
+of $(1+\epsilon)^{\zeta}$ around 1 yields
+\begin{equation}\begin{gathered}\begin{aligned}
+ (1+\epsilon)^{\zeta} & \approx  1+ \zeta \epsilon  + \epsilon^{2} \zeta (\zeta-1)/2 
+\\ & =  1 + \left(1 + \left(\frac{\zeta - 1}{2}\right)\epsilon\right)\zeta \epsilon 
+\end{aligned}\end{gathered}\end{equation}
+\end{Fact}
+
+\begin{verbatimwrite}{TaylorTwo.def}
+\providecommand{\TaylorTwo}{\href{https://www.econ2.jhu.edu/people/ccarroll/public/LectureNotes/MathFacts/MathFactsList\#TaylorTwo}{\ensuremath{\mathtt{[TaylorTwo]}}}}
+\end{verbatimwrite}
+
+
+\hypertarget{SmallSmallZero}{}
+\subsection{[SmallSmallZero]}\label{fact:SmallSmallZero}
+
+\begin{Fact} If $\epsilon$ is small and $\zeta$ is small then $\epsilon\zeta$ can be 
+approximated by zero.
+\end{Fact}
+
+\begin{verbatimwrite}{SmallSmallZero.def}
+\providecommand{\SmallSmallZero}{\href{https://www.econ2.jhu.edu/people/ccarroll/public/LectureNotes/MathFacts/MathFactsList\#SmallSmallZero}{\ensuremath{\mathtt{[SmallSmallZero]}}}}
+\end{verbatimwrite}
+
+
+
+\hypertarget{LogEps}{}
+\subsection{[LogEps]}\label{fact:LogEps}
+
+\begin{Fact} For $\epsilon$ near zero (`small'), 
+\begin{equation}
+\log (1+\epsilon) \approx \epsilon
+\end{equation}
+\end{Fact}
+
+\begin{verbatimwrite}{LogEps.def}
+\providecommand{\LogEps}{\href{https://www.econ2.jhu.edu/people/ccarroll/public/LectureNotes/MathFacts/MathFactsList\#LogEps}{\ensuremath{\mathtt{[LogEps]}}}}
+\end{verbatimwrite}
+
+
+\hypertarget{ExpEps}{}
+\subsection{[ExpEps]}
+\begin{Fact} For $\epsilon$ near zero (`small'), 
+\begin{equation}
+(1+\epsilon) \approx e^{\epsilon}
+\end{equation}
+\end{Fact}
+
+\begin{verbatimwrite}{ExpEps.def}
+\providecommand{\ExpEps}{\href{https://www.econ2.jhu.edu/people/ccarroll/public/LectureNotes/MathFacts/MathFactsList\#ExpEps}{\ensuremath{\mathtt{[ExpEps]}}}}
+\end{verbatimwrite}
+
+
+\hypertarget{OverPlus}{}
+\subsection{[OverPlus]}
+\begin{Fact} For $\epsilon$ near zero (`small'), 
+\begin{equation}
+1/(1+\epsilon) \approx 1-\epsilon
+\end{equation}
+\end{Fact}
+
+\begin{verbatimwrite}{OverPlus.def}
+\providecommand{\OverPlus}{\href{https://www.econ2.jhu.edu/people/ccarroll/public/LectureNotes/MathFacts/MathFactsList\#OverPlus}{\ensuremath{\mathtt{[OverPlus]}}}}
+\end{verbatimwrite}
+
+
+\hypertarget{MultPlus}{}
+\subsection{[MultPlus]}
+\begin{Fact} For $\epsilon$ and $\zeta$ near zero (`small'), 
+\begin{equation}
+(1+\epsilon)(1+\zeta) \approx 1+\epsilon+\zeta
+\end{equation}
+\end{Fact}
+
+\begin{verbatimwrite}{MultPlus.def}
+\providecommand{\MultPlus}{\href{https://www.econ2.jhu.edu/people/ccarroll/public/LectureNotes/MathFacts/MathFactsList\#MultPlus}{\ensuremath{\mathtt{[MultPlus]}}}}
+\end{verbatimwrite}
+
+\hypertarget{ExpPlus}{}
+\subsection{[ExpPlus]}
+\begin{Fact} For real numbers $\epsilon$ and $\zeta$ 
+\begin{equation}
+\exp(\zeta)\exp(\epsilon) = \exp(\zeta+\epsilon)
+\end{equation}
+\end{Fact}
+
+\begin{verbatimwrite}{ExpPlus.def}
+\providecommand{\ExpPlus}{\href{https://www.econ2.jhu.edu/people/ccarroll/public/LectureNotes/MathFacts/MathFactsList\#ExpPlus}{\ensuremath{\mathtt{[ExpPlus]}}}}
+\end{verbatimwrite}
+
+
+\section{Statistics/Probability Facts}
+
+Many of these facts are a consequence of the \href{https://en.wikipedia.org/wiki/Inequality_of_arithmetic_and_geometric_means}{Inequality of Arithmetic and Geometric Means}.  If you are rusty on the intuition for that inequality, please remind yourself about it before you think about the relevant results below.
+
+Henceforth we will use the notation $a \sim \mathcal{N}(\mu,\riskyvar)$ to define $a$ as a variable that is normally distributed with mean $\mu$ and variance $\riskyvar$.
+
+\hypertarget{SumNormsIsNorm}{}
+\subsection{[SumNormsIsNorm]}
+
+\begin{Fact} If $\rport_{t+1} \sim \mathcal{N}(\rport,\sigma^{2}_{\rport})$ and $\risky_{t+1} \sim \mathcal{N}(\risky,\riskyvar)$ and $\rport_{t+1}$ and $\risky_{t+1}$ are \href{http://en.wikipedia.org/wiki/Independence_(probability_theory)}{independent} (written $\rport_{t+1} \perp \risky_{t+1}$) then
+\begin{equation}
+        \rport_{t+1}+\risky_{t+1} \sim \mathcal{N}(\rport+\risky,\sigma^{2}_{\rport}+\riskyvar) \label{eq:SumNormsIsNorm}
+\end{equation}
+\end{Fact}
+
+\begin{verbatimwrite}{SumNormsIsNorm.def}
+\providecommand{\SumNormsIsNorm}{\href{https://www.econ2.jhu.edu/people/ccarroll/public/LectureNotes/MathFacts/MathFactsList\#SumNormsIsNorm}{\ensuremath{\mathtt{[SumNormsIsNorm]}}}}
+\end{verbatimwrite}
+
+\hypertarget{ELogNorm}{}
+\subsection{{[{ELogNorm}]}}
+
+\begin{Fact} Define a lognormally distributed stochastic rate of return $\Risky_{t+1}$ whose log is $\risky_{t+1} \equiv \log \Risky_{t+1}$ with mean $\risky = \Ex[\risky_{t+1}]$,
+  \begin{equation}
+    \risky_{t+1} \sim \mathcal{N}(\risky,\riskyvar).
+  \end{equation}
+ Then the expected \href{https://en.wikipedia.org/wiki/Log-normal_distribution#Arithmetic_moments}{arithmetic mean} is 
+\begin{equation}
+        \Ex[\Risky_{t+1}]\equiv\Ex[e^{\risky_{t+1}}] = e^{\null{\risky}+\riskyvar/2} \label{eq:ELogNorm}.
+      \end{equation}
+\end{Fact}
+
+\begin{verbatimwrite}{ELogNorm.def}
+\providecommand{\ELogNorm}{\href{https://www.econ2.jhu.edu/people/ccarroll/public/LectureNotes/MathFacts/MathFactsList\#ELogNorm}{\ensuremath{\mathtt{[ELogNorm]}}}}
+\end{verbatimwrite}
+
+\hypertarget{LogELogNorm}{}
+\subsection{[LogELogNorm]}
+
+\begin{Fact} If from the perspective of date $t$, $\Risky_{t+1}$ is lognormally distributed as in {\ELogNorm}, then
+\begin{equation}\begin{gathered}\begin{aligned}
+        \log \Ex_{t}[\Risky_{t+1}] & =  \Ex_{t}[\log \Risky_{t+1}]+\riskyvar/2
+\\ & =  \risky +\riskyvar/2
+\end{aligned}\end{gathered}\end{equation}
+which follows from taking the log of both sides of \eqref{eq:ELogNorm}.
+\end{Fact}
+
+\begin{verbatimwrite}{LogELogNorm.def}
+\providecommand{\LogELogNorm}{\href{https://www.econ2.jhu.edu/people/ccarroll/public/LectureNotes/MathFacts/MathFactsList\#LogELogNorm}{\ensuremath{\mathtt{[LogELogNorm]}}}}
+\end{verbatimwrite}
+
+\hypertarget{ELogNormMeanOne}{}
+\subsection{[ELogNormMeanOne] - Corollary of \ELogNorm}
+
+\begin{Fact} If from the viewpoint of period $t$ the stochastic variable $\Risky_{t+1}$ is lognormally distributed with mean $\riskyELog=-\riskyvar/2$ and variance $\riskyvar$, $\log \Risky_{t+1} \equiv \risky_{t+1} \sim \mathcal{N}(-\riskyvar/2,\riskyvar)$, then 
+\begin{equation}
+        \Ex_{t}[\Risky_{t+1}] \equiv \Ex_{t}[e^{\risky_{t+1}}] = e^{-\riskyvar/2+\riskyvar/2}=e^{0}=1 \label{eq:ELogNormMeanOne}
+\end{equation}
+\end{Fact}
+
+\begin{verbatimwrite}{ELogNormMeanOne.def}
+\providecommand{\ELogNormMeanOne}{\href{https://www.econ2.jhu.edu/people/ccarroll/public/LectureNotes/MathFacts/MathFactsList\#ELogNormMeanOne}{\ensuremath{\mathtt{[ELogNormMeanOne]}}}}
+\end{verbatimwrite}
+
+\hypertarget{ArithmeticVSGeometric}{}
+\subsection{[ArithmeticVSGeometric]}
+
+The definition of the expected \href{https://stats.stackexchange.com/questions/30365/why-is-expectation-the-same-as-the-arithmetic-mean}{expected arithmetic mean return} is 
+\begin{equation}\begin{gathered}\begin{aligned} \label{eq:riskyELev}
+      \riskyELev & = \Ex[\Risky_{t+1}]-1
+\\ & = e^{\null{\risky}+\riskyvar/2} - 1
+  \\ & \approx \risky+\riskyvar/2
+    \end{aligned}\end{gathered}\end{equation}
+where the approximation uses \ExpEps, along with the assumption that $\riskyELog$ and $\riskyvar$ are `small.'  The corollary is that 
+\begin{equation}\begin{gathered}\begin{aligned} \label{eq:riskyELog}
+ \riskyELog & \approx \riskyELev-\riskyvar/2 
+\end{aligned}\end{gathered}\end{equation}
+
+
+\begin{verbatimwrite}{ArithmeticVSGeometric.def}
+\providecommand{\ELogNormMeanOne}{\href{https://www.econ2.jhu.edu/people/ccarroll/public/LectureNotes/MathFacts/MathFactsList\#ArithmeticVSGeometric}{\ensuremath{\mathtt{[ArithmeticVSGeometric]}}}}
+\end{verbatimwrite}
+
+
+\begin{comment} % superceded by [ELogNormMeanOne]
+\hypertarget{MeanOne}{}
+\subsection{[MeanOne]}
+
+\begin{Fact} If $\log \Risky_{t+1} \sim \mathcal{N}(-\riskyvar/2,\riskyvar)$, then
+\begin{equation}\begin{gathered}\begin{aligned}
+        \Ex_{t}[\Risky_{t+1}] & =  1
+\end{aligned}\end{gathered}\end{equation}
+\end{Fact}
+
+This follows from substituting $- \riskyvar/2$ for $\mu$ in \ELogNorm.
+
+\begin{verbatimwrite}{MeanOne.def}
+\providecommand{\MeanOne}{\href{https://www.econ2.jhu.edu/people/ccarroll/public/LectureNotes/MathFacts/MathFactsList\#MeanOne}{\ensuremath{\mathtt{[MeanOne]}}}}
+\end{verbatimwrite}
+\end{comment}
+
+\hypertarget{LogMeanMPS}{}
+\subsection{[LogMeanMPS]}
+
+\begin{Fact} If $\log \Risky_{t+1} \sim \mathcal{N}(\null{\riskyELev}-\riskyvar/2,\riskyvar)$, then
+\begin{equation}\begin{gathered}\begin{aligned}
+      \log  \Ex_{t}[\Risky_{t+1}] & \approx  \riskyELev
+\end{aligned}\end{gathered}\end{equation}
+for any value of $\riskyvar \geq 0.$
+\end{Fact}
+
+This follows from substituting $\riskyELev - \riskyvar/2$ for $\risky$ in {\ELogNorm} and taking the log.
+
+\begin{verbatimwrite}{LogMeanMPS.def}
+\providecommand{\LogMeanMPS}{\href{https://www.econ2.jhu.edu/people/ccarroll/public/LectureNotes/MathFacts/MathFactsList\#LogMeanMPS}{\ensuremath{\mathtt{[LogMeanMPS]}}}}
+\end{verbatimwrite}
+
+
+\hypertarget{NormTimes}{}
+\subsection{[NormTimes]}\label{NormTimes}
+
+\begin{Fact} If $\risky_{t+1} \sim \mathcal{N}(\mu,\riskyvar)$, then
+\begin{equation}
+        \gamma \riskyELog_{t+1} \sim \mathcal{N}(\gamma \mu,\gamma^{2} \riskyvar)
+      \end{equation}
+\indent      \href{https://math.stackexchange.com/questions/1543687}{link to proof and discussion}
+\end{Fact}
+
+\begin{verbatimwrite}{NormTimes.def}
+\providecommand{\NormTimes}{\href{https://www.econ2.jhu.edu/people/ccarroll/public/LectureNotes/MathFacts/MathFactsList\#NormTimes}{\ensuremath{\mathtt{[NormTimes]}}}}
+\end{verbatimwrite}
+
+\hypertarget{ELogNormTimes}{}
+\subsection{[ELogNormTimes]}
+
+\begin{Fact} If $\log \hat{\Risky}_{t+1} \equiv \gamma \log \Risky_{t+1}$ where $\log \Risky_{t+1} \sim \mathcal{N}(\risky,\riskyvar)$, then
+\begin{equation}
+        \Ex_{t}[\hat{\Risky}_{t+1}] = e^{\gamma \risky+\gamma^{2}\riskyvar/2} \label{eq:ELogNormTimes}.
+      \end{equation}
+
+      
+    \end{Fact}
+    
+    Corollary:
+    \begin{itemize}
+    \item Note first that because the variance of a variable plus a constant is the same as the variance of the variable without the added constant,
+      \begin{align}
+        \sigma^{2}_{\riskyELev}= \Ex_{t}\left[\left(\riskyELog_{t+1}-\Ex_{t}[\riskyELog_{t+1}]\right)^{2}\right] =\Ex_{t}\left[\left(\riskyELev_{t+1}-\Ex_{t}[\riskyELev_{t+1}]\right)^{2}\right] = \riskyvar & = \sigma^{2}_{\epsilon}
+      \end{align}
+    \end{itemize}
+    
+    If $\riskyELog_{t+1} \equiv \riskyELev_{t+1} - \riskyvar/2$ as is approximated in \eqref{eq:riskyELog}, then, for $\epsilon_{t+1} \sim \mathcal{N}(0,\riskyvar)$ we can write
+    \begin{equation}\begin{gathered}\begin{aligned}
+          \riskyELog_{t+1} & = (\riskyELev+\epsilon_{t+1} - \riskyvar/2) 
+\\ \Ex_{t}[\riskyELog_{t+1}] & = (\riskyELev- \riskyvar/2) 
+\\ \gamma \riskyELog_{t+1} & = \left(\riskyELev+\epsilon_{t+1} - \riskyvar/2\right)\gamma 
+\\ \log \Ex_{t}[\exp( \gamma \riskyELog_{t+1})] & = \left(\riskyELev - \riskyvar/2\right)\gamma+\gamma^{2}\riskyvar/2 
+\\ & = \gamma (\riskyELev + (\gamma-1)(\riskyvar/2) )
+\\ & = \gamma (\riskyELev - \riskyvar/2) + \gamma^{2}\riskyvar/2
+        \end{aligned}\end{gathered}\end{equation}
+so
+\begin{equation}\begin{gathered}\begin{aligned}
+      \log \Ex_{t}[\hat{\Risky}_{t+1}] & = \gamma (\riskyELev - \sigma^{2}_{\epsilon}/2)+\gamma^{2}\sigma^{2}_{\epsilon}/2
+\\ & = \gamma \riskyELev - \gamma \sigma^{2}_{\epsilon}/2 + \gamma (\gamma \sigma^{2}_{\epsilon}/2)
+      \\ & = \gamma \riskyELev  + \gamma (\gamma \sigma^{2}_{\epsilon}/2-\sigma^{2}_{\epsilon}/2)
+      \\ & = \gamma \riskyELev  + \gamma (\sigma^{2}_{\epsilon}/2)(\gamma -1)      
+      \\ & = \gamma (\riskyELev  + (\gamma-1)\sigma^{2}_{\epsilon}/2)
+      \\ & = \gamma \riskyELev  + \gamma(\gamma-1)\sigma^{2}_{\epsilon}/2
+    \end{aligned}\end{gathered}\end{equation}
+
+      
+\begin{equation}\begin{gathered}\begin{aligned}
+      \sigma^{2}_{\riskyELev} & = \Ex_{t}[\left((\riskyELev_{t+1} - (\riskyELev-\sigma^{2}/2)\right)^{2}]
+      \\ & = \Ex_{t}[\left((\riskyELev_{t+1} - (\riskyELev-\sigma^{2}/2)\right)^{2}]
+\end{aligned}\end{gathered}\end{equation}
+
+\begin{equation}\begin{gathered}\begin{aligned}
+  \log \Ex_{t}[\hat{\Risky}_{t+1}] & = {\gamma (\riskyELev-\riskyvar/2)+\gamma^{2}\riskyvar/2}
+  \\ & = {\gamma (\riskyELev + \gamma (\gamma  \riskyvar/2)}
+\end{aligned}\end{gathered}\end{equation}
+
+\begin{verbatimwrite}{ELogNormTimes.def}
+\providecommand{\ELogNormTimes}{\href{https://www.econ2.jhu.edu/people/ccarroll/public/LectureNotes/MathFacts/MathFactsList\#ELogNormTimes}{\ensuremath{\mathtt{[ELogNormTimes]}}}}
+\end{verbatimwrite}
+
+\hypertarget{LogELogNormTimes}{}
+\subsection{[LogELogNormTimes]}
+
+\begin{Fact} If $\log \hat{\Risky}_{t+1} = \gamma \log \Risky_{t+1}$ where $\log \Risky_{t+1} \sim \mathcal{N}(\risky,\riskyvar)$, then
+\begin{equation}
+        \log \Ex_{t}[\hat{\Risky}_{t+1}] = \gamma \risky+\gamma^{2}\riskyvar/2 \label{eq:LogELogNormTimes}
+\end{equation}
+which follows from taking the log of \eqref{eq:ELogNormTimes}.
+
+\end{Fact}
+
+\begin{verbatimwrite}{LogELogNormTimes.def}
+\providecommand{\LogELogNormTimes}{\href{https://www.econ2.jhu.edu/people/ccarroll/public/LectureNotes/MathFacts/MathFactsList\#LogELogNormTimes}{\ensuremath{\mathtt{[LogELogNormTimes]}}}}
+\end{verbatimwrite}
+
+
+
+
+\section{Other Facts}
+
+\hypertarget{EulersTheorem}{}
+\subsection{[EulersTheorem]}\label{fact:EulersTheorem}
+
+\begin{Fact} If $Y=\FFunc(K,L)$ is a constant returns to scale production
+function, then
+\begin{equation}\begin{gathered}\begin{aligned}
+        Y & =  \FFunc_{K} K + \FFunc_{L} L,
+\end{aligned}\end{gathered}\end{equation}
+and if this production function characterizes output in a perfectly 
+competitive economy then $\FFunc_{K}$ is the interest factor and $\FFunc_{L}$ is
+the wage rate.
+
+\end{Fact}
+\begin{verbatimwrite}{EulersTheorem.def}
+\providecommand{\EulersTheorem}{\href{https://www.econ2.jhu.edu/people/ccarroll/public/LectureNotes/MathFacts/MathFactsList\#EulersTheorem}{\ensuremath{\mathtt{[EulersTheorem]}}}}
+\end{verbatimwrite}
+
+\write18{cat MathFactsList.explain *.def > /Volumes/Sync/Dropbox/Sys/Config/texlive/texmf-cdcpublicuse/tex/latex/MathFactsList.defs}
+\write18{rm -f*.def}
+\end{document}
+% Lines below help configure AucTeX if that is your editor
+% 
+% Local Variables:
+% TeX-master-file: t
+% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
+% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "Biber"  TeX-command-list)) TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) %s"    TeX-run-BibTeX nil t :help "Run BibTeX") TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("BibTeX"    "bibtex %s"    TeX-run-BibTeX nil (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode context-mode)  :help "Run BibTeX") TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("BibTeX" "bibtex %s"    TeX-run-BibTeX nil t :help "Run BibTeX") TeX-command-list))
+% eval: (add-to-list 'TeX-command-list '("BibTeX" "bibtex %s" TeX-run-BibTeX nil t                                                                              :help "Run BibTeX") t)
+% eval:  (add-to-list 'TeX-command-list '("BibTeX" "bibtex %s" TeX-run-BibTeX nil (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode context-mode) :help "Run BibTeX") t)
+% TeX-PDF-mode: t
+% TeX-file-line-error: t
+% TeX-debug-warnings: t
+% LaTeX-command-style: (("" "%(PDF)%(latex) %(file-line-error) %(extraopts) "))
+% TeX-source-correlate-mode: t
+% TeX-parse-self: t
+% TeX-parse-all-errors: t
+% eval: (cond ((string-equal system-type "darwin") (progn (setq TeX-view-program-list '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline -b %n %o %b"))))))
+% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-list '(("Evince" "evince --page-index=%(outpage) %o"))))))
+% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-selection '((output-pdf "Evince"))))))
+% End:

@@ -1,0 +1,56 @@
+\documentclass{handout}
+\usepackage{handoutSetup}\usepackage{handoutShortcuts}  
+
+\providecommand{\file}
+
+\newcommand{\entrylabel}[1]{\mbox{\small \texttt{#1}:}\hfil}
+\newenvironment{entry}
+  {\begin{list}{}
+      {\renewcommand{\makelabel}{\entrylabel}
+       \setlength{\labelwidth}{1.5in}
+       \setlength{\labelsep}{0.1in}
+       \setlength{\leftmargin}{\labelwidth}
+       %\setlength{\itemindent}{-0.5in}
+}}
+{\end{list}}
+
+
+\bibliographystyle{econtex}\begin{document}
+
+\handoutHeader
+
+\begin{verbatimwrite}{\texname.title}
+Derivations and Methods Useful for Macroeconomics
+\end{verbatimwrite}
+
+\centerline{\LARGE \input \texname.title}
+
+\medskip\medskip
+
+The online directory that contains these notes is 
+
+\newcommand{\publec}{https://www.econ2.jhu.edu/people/ccarroll/courses/choice/LectureNotes}
+\newcommand{\toDir}{https://www.econ2.jhu.edu/people/ccarroll/public/lecturenotes/MathFacts}
+
+\begin{verbatimwrite}{./body.tex}
+
+\centerline{\href{\publec}{\texttt{\publec}}}
+
+\newcommand{\dir}{/Volumes/Data/Courses/Choice/LectureNotes/MathFacts/Handouts}
+
+\input makePostHandoutsStart.tex
+
+\newcommand{\hBoth}[1]{\href{\toDir/#1.pdf}{[pdf]}\href{\toDir/#1}{[html]}}
+\begin{entry}
+\input ././Index/MathFactsList.tex
+\input ././Index/Aggregation.tex
+\end{entry}
+
+\write18{chmod a+x makePostHandouts.sh}
+\write18{touch makePostHandouts.sh ; mv makePostHandouts.sh /Volumes/Data/Courses/Choice/LectureNotes/MathFacts/makePostMathFacts/makePostHandoutsAll.sh}
+
+\end{verbatimwrite}
+\input ./body.tex
+
+\end{document}
+

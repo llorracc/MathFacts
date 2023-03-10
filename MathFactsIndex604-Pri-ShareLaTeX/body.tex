@@ -1,0 +1,16 @@
+
+\centerline{\href{\publec}{\texttt{\publec}}}
+
+\newcommand{\dir}{/Volumes/Data/Courses/Choice/LectureNotes/MathFacts/Handouts}
+
+\input makePostHandoutsStart.tex
+
+\newcommand{\hBoth}[1]{\href{\toDir/#1.pdf}{[pdf]}\href{\toDir/#1}{[html]}}
+\begin{entry}
+\input ././Index/MathFactsList.tex
+\input ././Index/Aggregation.tex
+\end{entry}
+
+\write18{chmod a+x makePostHandouts.sh}
+\write18{touch makePostHandouts.sh ; mv makePostHandouts.sh /Volumes/Data/Courses/Choice/LectureNotes/MathFacts/makePostMathFacts/makePostHandoutsAll.sh}
+

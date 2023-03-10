@@ -1,0 +1,15 @@
+This is METAFONT, Version 2.71828 (Web2C 7.5.5) (base=mf 2006.10.15)  28 JAN 2007 21:28
+**\mode:=ljfour; mag:=1+120/600; nonstopmode; input fibr84
+
+(/Users/Shared/Library/texmf.cdcdownloaded/fonts/source/public/ibycus4/fibr84.m
+f (/usr/local/teTeX/share/texmf.tetex/fonts/source/public/cm/cmbase.mf)
+! I can't find file `grbase'.
+l.3 if unknown grbase: input grbase
+                                    fi
+Please type another input file name
+! Emergency stop.
+l.3 if unknown grbase: input grbase
+                                    fi
+*** (job aborted, file error in nonstop mode)
+
+

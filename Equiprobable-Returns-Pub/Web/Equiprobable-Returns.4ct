@@ -1,0 +1,7 @@
+\expandafter\ifx\csname doTocEntry\endcsname\relax \expandafter\endinput\fi 
+\doTocEntry\tocsection{1}{\csname a:TocLink\endcsname{1}{x1-10001}{QQ2-1-1}{Statistical Theory}}{1}\relax 
+\doTocEntry\tocsection{2}{\csname a:TocLink\endcsname{1}{x1-20002}{QQ2-1-2}{Computational Theory}}{7}\relax 
+\doTocEntry\tocsection{3}{\csname a:TocLink\endcsname{1}{x1-30003}{QQ2-1-3}{Computational Results}}{10}\relax 
+\doTocEntry\toclof{1}{\csname a:TocLink\endcsname{1}{x1-30011}{}{\ignorespaces Portfolio Share By Method as a Function of $\omega $}}{figure}\relax 
+\doTocEntry\toclikesection{}{\csname a:TocLink\endcsname{1}{x1-40003}{QQ2-1-5}{References}}{13}\relax 
+\par 

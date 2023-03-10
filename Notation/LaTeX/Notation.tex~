@@ -1,0 +1,125 @@
+\documentclass{lecturenotes}
+\usepackage{packages}
+\usepackage{EconShortcuts}
+%\usepackage[ibycus]{babel}
+
+\begin{document}
+
+\begin{table}
+\begin{tabular}{rcl}
+    $A$ & - & End-of-period $t$ assets
+\\  $B$ & - & Middle-of-period $t$ balances ($=R_{t} K_{t}$)
+\\      & - & Bequests in Ricardian equivalence analysis
+\\  $C$ & - & Consumption
+\\  $D$ & - & Outstanding government debt/bonds
+\\  $E$ & - & Expectations operator
+\\  $e$ & - & Labor effort exerted
+\\  $F$ & - & Production function
+\\  $\mathfrak{G}$ & - & Growth factor for labor income
+\\  $H$ & - & Human wealth
+\\      & - & Habit stock
+\\  $I$ & - & Investment
+\\  $J$ & - & Adjustment costs
+\\  $K$ & - & Capital/beginning of period nonhuman assets
+\\  $L$ & - & Labor
+\\  $\ell$ & - & individual level labor supply
+\\  $M$ & - & Market resources (capital, capital income, and labor income)
+\\  $N$ & - & Net wealth including human wealth
+\\  $P$ & - & Permanent labor income
+\\  $Q$ & - & Hayashi/Abel $Q$
+\\      & - & Ratio of actual to perceived income (StickyExpectationsC)
+\\  $R$ & - & Interest factor
+\\  $S$ & - & Aggregate State
+\\  $T$ & - & Taxes
+\\  $U$ & - & Utility
+\\  $V$ & - & Value
+\\  $W$ & - & Wages
+\\  $X$ & - & Expenditures (as distinct from consumption)
+\\  $Y$ & - & Labor income
+\\  $Z$ & - & Taxes minus expenditures (positive means gov taking more than giving)
+\\      & - & LeiZure in consumption/leisure tradeoff
+\\      & - & End-of-period capital (in q model)
+\\  $\mathcal{R}$ & - & Within-period interest factor ($1+F_{K}$)
+\\  $R$ & - & Between period interest factor ($(1+F_{K}) \daleth$)
+\\  $r$ & - & Between-period interest rate ($\approx F_{K} - \delta$)
+\\  $\mathfrak{R}_{t+1}$ & - & Between-period Blanchard-adjusted but not growth-adjusted interest factor ($\mathcal{R}_{t+1} \daleth/\Omega $)
+\\  $\mathbb{R}_{t+1}$ & - & Between-period growth-adjusted interest factor ($\mathcal{R}_{t+1} \daleth/\Omega \mathbf{\Psi}_{t+1}$)
+%\\  $\mathbb{r}$ & - & Between-period growth-adjusted interest rate ($\approx F_{K} - \delta+\log(\underline{\Psi})$)
+\end{tabular}
+\end{table}
+
+\begin{table}
+\caption{Non-Roman characters (mainly Greek)}
+\begin{tabular}{rcl}
+    $\alpha$   & - & General purpose constant
+\\  $\beta$   & - & Discount factor
+\\  $\delta$  & - & Depreciation rate
+\\  $\daleth$ & - & Depreciation factor = $(1+\delta)$
+\\  $\epsilon$ & - & An iid shock
+\\  $\varepsilon$ & - & Share of K in Cobb-Douglas pdn fcn; (CurlyEpsilon in Mathematica)
+\\  $\mu$     & - & Marginal utility
+\\  $\theta$  & - & Transitory shock to income
+\\  $\kappa$  & - & Marginal propensity to konsume (after $m$ realized)
+\\  $\varkappa$  & - & Marginal propensity to have consumed (at end of period, after consumption)
+\\  $\lambda$ & - & Marginal propensity to save ($l$eave unkonsumed; BSTheory)
+\\  $\mathkoppa$   & - & Hayashi/Abel q
+\\  $\nu$     & - & Beginning-of-period value function
+\\  $\pi$     & - & probability
+\\  $\rho$    & - & Coefficient of relative risk aversion
+\\  $\tau$    & - & tax or tax rate
+\\  $\zeta$    & - & time preference rate
+\\  $\psi$    & - & idiosyncratic permanent shock
+\\  $\Psi$    & - & aggregate permanent shock
+\\  $\underline{\Psi}$ & - & underlying (`underline') permanent growth rate
+\\  $\mathfrak{N}$ & - & Population growth factor
+\\  $\mathfrak{n}$ & - & Population growth rate
+\\  $\Omega$   & - & Probability of living from one period to the next
+\\  $\mho=1-\Omega$  & - & Probability of dying 
+\\  $\phi$    & - & tax rate - individual basis (GA models); corporate tax rate ($q$ model)
+\\  $\varphi$ & - & log return on equity/risky investment
+\\  $\hat{\varphi}$ & - & $= \varphi - \mathbf{r}$ = log equity premium
+\\  $\Phi$    & - & taxes collected from all individuals
+\\            & - & Return factor on risky investment, where $\Phi/\mathbf{R}$ is the premium
+\\  $\varrho$    & - & investment tax credit rate
+\\  $\xi$     & - & expenditures on investment (i+j) times tax terms ($q$ model)
+\\  $\Xi$     & - & transitory shock excluding zero-income events (Endgenous Gridpoints paper)
+\\  $\wp$     & - & probability of zero-income events (Endogenous Gridpoints/TractableBufferStock)
+\\  $\omega$  & - & adjustment cost parameter ($q$ model)
+\\  $\chi$    & - & consumption growth rate ($=(R \beta)^{1/\rho}$)
+\\  $\varsigma$ & - & $j_{t}^{i}-j_{t}^{k}$ in $q$ model
+\\   & - & portfolio share in risky assets in portfolio models
+\\  $\aleph$  & - & Capital/Output Ratio
+\end{tabular}
+\end{table}
+
+\begin{table}
+\caption{Operators}
+\begin{tabular}{rcl}
+    $\mathbb{P}_{s}^{t}$ & - & Present discounted value between $s$ and $t$
+\\  $\mathbb{P}_{t}$     & - & Present discounted value between $t$ and end of horizon
+\\ $\mathbf{E}_{t}$ & - & Expectations
+\end{tabular}
+\end{table}
+
+
+\begin{table}
+\caption{Commands That Produce Variables}
+\begin{tabular}{rcl}on==
+   \texttt{$\backslash$Risky} & - & $\Risky$ 
+\\ \texttt{$\backslash$roisky} & - & $\risky$
+\\ \texttt{$\backslash$Rfree} & - & $\Rfree$
+\\ \texttt{$\backslash$rfree} & - & $\rfree$
+\\ \texttt{$\backslash$Eprem} & - & $\hat{\Risky}$ = $\Risky/\Rfree$
+\\ \texttt{$\backslash$eprem} & - & $\hat{\risky}$ = $\risky - \rfree$
+\\ \texttt{$\backslash$Estdr} & - & $\Estdr$
+\\ \texttt{$\backslash$Evarr} & - & $\Evarr$
+\end{tabular}
+\end{table}
+
+ 
+\input handoutBibMake
+
+
+\end{document}
+
+

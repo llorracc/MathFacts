@@ -1,0 +1,23 @@
+\providecommand{\noopsort}[1]{} \providecommand{\singleletter}[1]{#1}
+\ifx\undefined\BySame
+\newcommand{\BySame}{\leavevmode\rule[.5ex]{3em}{.5pt}\ }
+\fi
+\ifx\undefined\textsc
+\newcommand{\textsc}[1]{{\sc #1}}
+\newcommand{\emph}[1]{{\em #1\/}}
+\let\tmpsmall\small
+\renewcommand{\small}{\tmpsmall\sc}
+\fi
+\begin{thebibliography}{}
+
+\harvarditem[Judd]{Judd}{1998}{judd:book}
+\textsc{Judd, Kenneth~L.}  (1998): \emph{Numerical Methods in Economics}. The
+  MIT Press, Cambridge, Massachusetts.
+
+\harvarditem[Kopecky and Suen]{Kopecky and Suen}{2010}{kopecky2010finite}
+\textsc{Kopecky, Karen~A.,  {and} Richard~M.H. Suen}  (2010): ``Finite State
+  Markov-Chain Approximations To Highly Persistent Processes,'' \emph{Review of
+  Economic Dynamics}, 13(3), 701--714,
+  \url{http://www.karenkopecky.net/RouwenhorstPaper.pdf}.
+
+\end{thebibliography}

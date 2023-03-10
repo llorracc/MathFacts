@@ -1,0 +1,123 @@
+\documentclass{handout}
+
+\usepackage{handoutSetup}  
+
+%\setboolean{BigAndWide}{true}\wideMargins
+
+
+\begin{document}
+\handoutHeader
+
+
+\begin{verbatimwrite}{\jobname.title}
+Aggregation For Dummies (Macroeconomists)
+\end{verbatimwrite}
+
+\handoutNameMake
+
+
+\section{Infinitely Lived Households}
+
+Consider an economy populated by a set of agents distributed uniformly along 
+the unit interval with a total population mass of 1.  That is, for $i \in [0,1]$ the 
+probability distribution function is $f(i) = 1$ and $f(i)=0$ elsewere; the CDF on the $[0,1]$ interval is therefore
+$F(i)=i$, implying an aggregate population mass of $F(1)=1$.  
+
+Agent $i$'s value of variable $\bullet$ at date $t$ is $\bullet_{t,i}$.
+Thus aggregate consumption is 
+\begin{eqnarray}
+  C_{t} & = & \int_{0}^{1} c_{t,i} f(i) di,
+\\ & = & \int_{0}^{1} c_{t,i} di,
+\end{eqnarray}
+and a similar notation applies to other variables.
+
+Since the aggregate population is normalized to 1, capital
+letters refer not only to aggregate variables but also to
+per capita variables, since per-capita consumption is 
+aggregate consumption divided by aggregate population:
+\begin{eqnarray}
+  \left(\frac{\int_{0}^{1} c_{t,i} f(i) di}{\int_{0}^{1} f(i) di}\right) & = & \left(\frac{C_{t}}{1}\right) = C_{t}.
+\end{eqnarray}
+
+Each individual agent is infinitesimally small, and can therefore
+neglect the effects of its own actions on aggregates.
+
+\section{Blanchard Lives}
+
+For many purposes the assumption that economic agents live forever is useful;
+but for other purposes it is necessary to be able to analyze agents with finite horizons.  \cite{blanchardFinite} introduced a 
+tractable framework that permits analysis of many of the key issues
+posed by finite lifetimes.  
+
+The key assumption  is that the probability
+of death is independent of the agent's age.  (This is similar to the \cite{calvoPrices}
+assumption that the probability that a firm will change its prices is independent of the time
+elapsed since the last price change).  
+
+The most convenient formulation of the model is one in which the number of dying 
+individuals is always equal to the number of newborn individuals, so that the population
+remains constant.  
+
+\subsection{Discrete Time} 
+
+As above, suppose that the population alive at time $t$ is arranged on the unit interval.
+The probability of death is $\pDies$ (and the probability of not dying is $\PLives = 1-\pDies$).
+Then for a person living at any location $i \in [0,1]$, expected remaining lifetime including the 
+current period will be 
+\begin{eqnarray}
+  1 + \overbrace{(1-\PDies)}^{\PLives} + (1-\PDies)^{2} + \ldots & = & \left(\frac{1}{1-(1-\PDies)}\right)
+\\ & = & 1/\PDies
+.
+\end{eqnarray}
+
+If a new cohort of size $\PDies$ has been born each period since the beginning of time, the total population will be given by the size of a new cohort $\PDies$ multiplied by the expected lifetime $\PDies^{-1}$:
+\begin{eqnarray}
+  \PDies \PDies^{-1} & = & 1,
+\end{eqnarray}
+so that the mass of the aggregate population is constant at 1, as above.
+
+\subsection{Continuous Time}
+
+Blanchard's original treatment was in continuous time, with a constant
+rate of death $\pDies$, so that the probability of remaining alive (not dead)
+after $t$ periods for a consumer born in period 0 is\footnote{The number of people who will die during the first period in the continuous-time model is measured by the difference between an initial 
+population of size 1 and the size of the population remaining alive after one period, $1-\Alive_{1}=1-e^{-\pDies}$.  \texttt{[ExpEps]} in {\MathFactsList} implies that $e^{-\pDies} \approx 1-\pDies$; therefore the proportion who have died will be approximately $1-(1- \pDies)=\pDies$.  Hence for small death rates, in order for the same population to survive for one period in a continuous-time model with death rate $\pDies$ and the discrete-time model with death rate $\PDies$, one would need $\pDies \approx \PDies$.}
+\begin{eqnarray}
+  \Alive_{t} & = & e^{-\pDies \tNow}
+\end{eqnarray}
+so that the expected life span is 
+\begin{eqnarray}
+  \int_{0}^{\infty} e^{-\pDies \tau} d\tau & = & 1/\pDies
+\end{eqnarray}
+and if the flow arrival rate of new population is $\pDies$ (that is, at each instant a flow of new population arrives at rate $\pDies$) then again the population
+mass is constant at 
+\begin{eqnarray}
+  \pDies/\pDies & = & 1.
+\end{eqnarray}
+
+\subsection{Population Growth}
+
+Now suppose that the population in the discrete-time model is growing by a factor $\PopGro=(1+\popGro)$ from period to period; if the number of newborns in period 0 was 1, then the number of newborns in period $t$ is given by 
+\begin{eqnarray}
+  \PopGro^{t}.
+\end{eqnarray}
+
+In this framework we want to keep track of the {\it relative} population of each cohort compared 
+to the size of the newborn cohort.  At age $\age$, the cohort that was born in period 0
+will be of relative size
+\begin{eqnarray}
+  (\PLives/\PopGro)^{\age}
+\end{eqnarray}
+
+The total relative populations will be 
+\begin{eqnarray}
+  \label{eq:4}
+  1 + (\PLives/\PopGro) + (\PLives/\PopGro)^{2} + ... & = & \left(\frac{1}{1-\PLives/\PopGro}\right)
+\end{eqnarray}
+so that if in period 0 the population was of size $(1-\PLives/\PopGro)$ then the sizes
+of the relative populations will add up to one even as the absolute population grows by
+the factor $\PopGro$.
+
+\input handoutBibMake.tex
+
+\end{document}
